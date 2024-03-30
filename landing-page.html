@@ -20,8 +20,8 @@
             </li>
 
             <span class="user-access">
-                <a href="#" class="login-btn">Login</a>
-                <a href="#" class="register-btn">Register</a>
+                <a href="user-form.html#login" class="login-btn">Login</a>
+                <a href="user-form.html#signup" class="register-btn">Register</a>
             </span>
         </nav>
     </header>
@@ -122,4 +122,31 @@
         
     </footer>
 </body>
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const linkToCheckedCheckbox = document.getElementById("linkToCheckedCheckbox");
+
+        linkToCheckedCheckbox.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the default action of the link
+
+            // Check which checkbox is checked
+            const checkboxes = document.querySelectorAll("input[type='checkbox']");
+            let checkedCheckboxId = "";
+            checkboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    checkedCheckboxId = checkbox.id;
+                }
+            });
+
+            // Construct the link dynamically with the ID of the checked checkbox
+            if (checkedCheckboxId !== "") {
+                const link = "target-page.html#" + checkedCheckboxId;
+                window.location.href = link;
+            }
+        });
+    });
+</script>
+
 </html>
